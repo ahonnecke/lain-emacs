@@ -37,7 +37,10 @@
 
 ;; AceWindowPac
 (use-package ace-window
-  :bind ("C-x C-o" . ace-window))
+  :bind ("M-o" . ace-window)
+  )
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
 ;; -AceWindowPac
 
 (provide 'init-ace-window)

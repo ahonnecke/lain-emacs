@@ -228,6 +228,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-zone)
 
+(require 'init-bindings)
+
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
