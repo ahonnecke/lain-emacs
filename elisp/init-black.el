@@ -1,20 +1,31 @@
-;;; init-python.el --- -*- lexical-binding: t -*-
+;;; init-black.el ---
 ;;
-;; Filename: init-python.el
-;; Description: Initialize Python
+;; Filename: init-black.el
+;; Description:
 ;; Author: Mingde (Matthew) Zeng
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Mon Jun 10 18:58:02 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: lsp-python-ms
-;; Compatibility: emacs-version >= 26.1
+;; Created: Mon Sep 14 13:12:57 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 10
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes lsp-python-ms
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,32 +46,31 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-flycheck)
-  (require 'init-const))
+(use-package blacken
+    :after python
+    :config
+    (defun apply-black ()
+      "run black on the current file and revert the buffer"
+      (interactive)
+      (shell-command
+       (format "black %s"
+               (shell-quote-argument (buffer-file-name))))
+      (revert-buffer t t t))
 
-;; PythonConfig
-(use-package python-mode
-  :ensure nil
-  :after flycheck
-  :mode "\\.py\\'"
-  :custom
-  (python-indent-offset 4)
-  (flycheck-python-pycompile-executable "python3")
-  (python-shell-interpreter "python3"))
-;; -PythonConfig
+    :bind
+    (("C-c l" . blacken-buffer))
+    )
 
-;; LSPPythonPac
-(use-package lsp-python-ms
-  :after lsp-mode python
-  :if python-p
-  :custom
-  (lsp-python-executable-cmd "python3"))
-;; -LSPPythonPac
 
-(global-set-key (kbd "C-c i r") 'python-indent-shift-right)
-(global-set-key (kbd "C-c i l") 'python-indent-shift-left)
+;;@ TODO only apply to buffers in python mode
 
-(provide 'init-python)
+;; (defvar python-mode-map)
+;; (setq python-mode-map
+;;       (let ((map (make-sparse-keymap)))
+;;         ;; electric keys
+;;         (define-key map (kbd "C-c l") 'blacken-buffer)
+;; ))
+
+(provide 'init-black)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-python.el ends here
+;;; init-black.el ends here

@@ -1,20 +1,31 @@
-;;; init-python.el --- -*- lexical-binding: t -*-
+;;; init-forge.el ---
 ;;
-;; Filename: init-python.el
-;; Description: Initialize Python
+;; Filename: init-forge.el
+;; Description:
 ;; Author: Mingde (Matthew) Zeng
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Mon Jun 10 18:58:02 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: lsp-python-ms
-;; Compatibility: emacs-version >= 26.1
+;; Created: Mon Sep 14 09:54:00 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 1
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes lsp-python-ms
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,32 +46,9 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-flycheck)
-  (require 'init-const))
+(use-package forge
+  :after magit)
 
-;; PythonConfig
-(use-package python-mode
-  :ensure nil
-  :after flycheck
-  :mode "\\.py\\'"
-  :custom
-  (python-indent-offset 4)
-  (flycheck-python-pycompile-executable "python3")
-  (python-shell-interpreter "python3"))
-;; -PythonConfig
-
-;; LSPPythonPac
-(use-package lsp-python-ms
-  :after lsp-mode python
-  :if python-p
-  :custom
-  (lsp-python-executable-cmd "python3"))
-;; -LSPPythonPac
-
-(global-set-key (kbd "C-c i r") 'python-indent-shift-right)
-(global-set-key (kbd "C-c i l") 'python-indent-shift-left)
-
-(provide 'init-python)
+(provide 'init-forge)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-python.el ends here
+;;; init-forge.el ends here

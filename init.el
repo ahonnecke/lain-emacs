@@ -150,7 +150,11 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-scroll)
 
 ;; General Programming
+(require 'init-ffap)
+
 (require 'init-magit)
+
+(require 'init-forge)
 
 (require 'init-projectile)
 
@@ -190,6 +194,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-python)
 
+(require 'init-black)
+
 (require 'init-haskell)
 
 (require 'init-ess)
@@ -228,7 +234,24 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-zone)
 
+;; misc ashton stuff
 (require 'init-bindings)
+
+(require 'init-fzf)
+
+(require 'init-quad-screen)
+
+(require 'init-google-this)
+
+(require 'init-browse-at-remote)
+
+(require 'init-auto-highlight-symbol)
+
+(require 'init-rg)
+
+(require 'init-deadgrep)
+
+(require 'init-expand-region)
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -1,20 +1,31 @@
-;;; init-python.el --- -*- lexical-binding: t -*-
+;;; init-fzf.el ---
 ;;
-;; Filename: init-python.el
-;; Description: Initialize Python
-;; Author: Mingde (Matthew) Zeng
+;; Filename: init-fzf.el
+;; Description:
+;; Author: Ashton Honnecke
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Mon Jun 10 18:58:02 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: lsp-python-ms
-;; Compatibility: emacs-version >= 26.1
+;; Created: Sun Sep 13 11:27:12 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 4
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes lsp-python-ms
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -34,33 +45,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+;; (setq-local projectile-project-root "/home/ahonnecke/src/")
 
-(eval-when-compile
-  (require 'init-flycheck)
-  (require 'init-const))
+(use-package "fzf"
+  :init (setenv "FZF_DEFAULT_COMMAND" "rg --files --no-ignore-vcs --hidden")
+  )
 
-;; PythonConfig
-(use-package python-mode
-  :ensure nil
-  :after flycheck
-  :mode "\\.py\\'"
-  :custom
-  (python-indent-offset 4)
-  (flycheck-python-pycompile-executable "python3")
-  (python-shell-interpreter "python3"))
-;; -PythonConfig
-
-;; LSPPythonPac
-(use-package lsp-python-ms
-  :after lsp-mode python
-  :if python-p
-  :custom
-  (lsp-python-executable-cmd "python3"))
-;; -LSPPythonPac
-
-(global-set-key (kbd "C-c i r") 'python-indent-shift-right)
-(global-set-key (kbd "C-c i l") 'python-indent-shift-left)
-
-(provide 'init-python)
+(provide 'init-fzf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-python.el ends here
+;;; init-fzf.el ends here

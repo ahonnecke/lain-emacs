@@ -1,20 +1,31 @@
-;;; init-python.el --- -*- lexical-binding: t -*-
+;;; init-quad-screen.el ---
 ;;
-;; Filename: init-python.el
-;; Description: Initialize Python
+;; Filename: init-quad-screen.el
+;; Description:
 ;; Author: Mingde (Matthew) Zeng
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Mon Jun 10 18:58:02 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: lsp-python-ms
-;; Compatibility: emacs-version >= 26.1
+;; Created: Sun Sep 13 12:11:40 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 3
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes lsp-python-ms
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,32 +46,24 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-flycheck)
-  (require 'init-const))
+(fset 'triple-screen
+      (lambda (&optional arg)
+        "Split the screen into three screens"
+        (interactive "p")
+        (kmacro-exec-ring-item
+         (quote ([?\C-x ?1 ?\C-x ?3 ?\C-x ?3 ?\C-x ?+ ] 0 "%d")) arg)))
 
-;; PythonConfig
-(use-package python-mode
-  :ensure nil
-  :after flycheck
-  :mode "\\.py\\'"
-  :custom
-  (python-indent-offset 4)
-  (flycheck-python-pycompile-executable "python3")
-  (python-shell-interpreter "python3"))
-;; -PythonConfig
+(fset 'quad-screen
+      (lambda (&optional arg)
+        "Split the screen into four bufers"
+        (interactive "p")
+        (kmacro-exec-ring-item
+         (quote ([?\C-x ?1 ?\C-x ?3 ?\C-x ?3 ?\C-x ?3 ?\C-x ?+ ] 0 "%d")) arg)))
 
-;; LSPPythonPac
-(use-package lsp-python-ms
-  :after lsp-mode python
-  :if python-p
-  :custom
-  (lsp-python-executable-cmd "python3"))
-;; -LSPPythonPac
+(quad-screen)
 
-(global-set-key (kbd "C-c i r") 'python-indent-shift-right)
-(global-set-key (kbd "C-c i l") 'python-indent-shift-left)
+(global-set-key (kbd "C-c +") 'quad-screen)
 
-(provide 'init-python)
+(provide 'init-quad-screen)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-python.el ends here
+;;; init-quad-screen.el ends here

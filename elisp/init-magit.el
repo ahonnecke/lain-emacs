@@ -46,7 +46,21 @@
   (defun magit-log-follow-current-file ()
     "A wrapper around `magit-log-buffer-file' with `--follow' argument."
     (interactive)
-    (magit-log-buffer-file t)))
+    (magit-log-buffer-file t))
+
+  (defun auto-display-magit-process-buffer (&rest args)
+    "Automatically display the process buffer when it is updated."
+    (let ((magit-display-buffer-noselect t))
+      (magit-process-buffer)))
+
+  (define-key magit-process-mode-map  (kbd "<return>") 'find-file-at-point-with-line)
+  (advice-add 'magit-process-set-mode-line-error-status :before #'auto-display-magit-process-buffer)
+  (setq vc-handled-backends (delq 'Git vc-handled-backends))
+  (setq magit-refresh-status-buffer nil)
+  )
+
+(global-set-key (kbd "H-h") 'browse-at-remote)
+
 ;; -MagitPac
 
 (provide 'init-magit)
