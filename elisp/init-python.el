@@ -58,8 +58,10 @@
   (lsp-python-executable-cmd "python3"))
 ;; -LSPPythonPac
 
-(global-set-key (kbd "C-c i r") 'python-indent-shift-right)
-(global-set-key (kbd "C-c i l") 'python-indent-shift-left)
+;; Override M-right/left moves full word user M-f and M-b
+;; Also use M-F and M-B to move harder
+(global-set-key [M-right]  'python-indent-shift-right)
+(global-set-key [M-left]   'python-indent-shift-left)
 
 (provide 'init-python)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
