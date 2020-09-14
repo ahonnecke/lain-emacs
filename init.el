@@ -216,7 +216,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-eww)
 
-(require 'init-mu4e)
+;;(require 'init-mu4e)
 
 (require 'init-tramp)
 
@@ -252,6 +252,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-deadgrep)
 
 (require 'init-expand-region)
+
+(require 'init-ini-mode)
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
