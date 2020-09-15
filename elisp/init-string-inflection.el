@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 3
+;;     Update #: 4
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -52,7 +52,7 @@
 (global-set-key (kbd "C-c M") 'string-inflection-camelcase)
 (global-set-key (kbd "C-c -") 'string-inflection-underscore)
 
-(provide init-string-inflection)
+(provide 'init-string-inflection)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-string-inflection.el ends here

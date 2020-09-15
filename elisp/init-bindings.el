@@ -82,12 +82,15 @@
 (global-set-key (kbd "C-c r") 'replace-string)
 (global-set-key (kbd "C-c q") 'query-replace)
 
-(global-set-key (kbd "H-s") 'swiper)
+(global-set-key (kbd "H-s") 'swiper-thing-at-point)
 (global-set-key (kbd "M-u") 'string-inflection-python-style-cycle)
-(global-set-key (kbd "H-M-u") 'string-inflection-all-cycle)
+
+(global-set-key (kbd "C-x c p") 'string-inflection-python-style-cycle)
+(global-set-key (kbd "C-x c a") 'string-inflection-all-cycle)
+(global-set-key (kbd "C-x c s") 'string-inflection-underscore)
+(global-set-key (kbd "C-x c u") 'string-inflection-upcase)
 
 (global-set-key (kbd "C-s") 'isearch-forward)
-
 
 ;; (key-chord-define-global ";j" 'avy-goto-char)
 
@@ -137,7 +140,6 @@
 (global-set-key (kbd "H-m f") 'magit-log-buffer-file)
 (global-set-key (kbd "H-m b") 'magit-blame)
 (global-set-key (kbd "H-o") 'crux-smart-open-line-above)
-(global-set-key (kbd "H-g") 'projectile-grep)
 
 (global-set-key (kbd "H-C-f") 'find-file)
 (global-set-key (kbd "H-f") 'fzf)

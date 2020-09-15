@@ -1,16 +1,16 @@
-;;; init-auto-highlight-symbol.el ---
+;;; init-helm-projectile.el ---
 ;;
-;; Filename: init-auto-highlight-symbol.el
+;; Filename: init-helm-projectile.el
 ;; Description:
 ;; Author: Mingde (Matthew) Zeng
 ;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Mon Sep 14 09:12:15 2020 (-0600)
+;; Created: Tue Sep 15 15:42:00 2020 (-0600)
 ;; Version:
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 2
+;;     Update #: 4
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -45,8 +45,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(use-package auto-highlight-symbol)
-(global-auto-highlight-symbol-mode t)
-(provide 'init-auto-highlight-symbol)
+
+(use-package helm-projectile)
+(global-set-key (kbd "H-g") 'helm-projectile-rg)
+(provide 'init-helm-projectile)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-auto-highlight-symbol.el ends here
+;;; init-helm-projectile.el ends here

@@ -1,16 +1,16 @@
-;;; init-auto-highlight-symbol.el ---
+;;; init-split-window.el ---
 ;;
-;; Filename: init-auto-highlight-symbol.el
+;; Filename: init-split-window.el
 ;; Description:
 ;; Author: Mingde (Matthew) Zeng
 ;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Mon Sep 14 09:12:15 2020 (-0600)
+;; Created: Tue Sep 15 14:02:40 2020 (-0600)
 ;; Version:
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 2
+;;     Update #: 3
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -45,8 +45,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(use-package auto-highlight-symbol)
-(global-auto-highlight-symbol-mode t)
-(provide 'init-auto-highlight-symbol)
+
+(setq split-height-threshold 140
+      split-width-threshold 200)
+
+(defun my-split-window-sensibly (&optional window)
+    "replacement `split-window-sensibly' function which prefers vertical splits"
+    (interactive)
+    (let ((window (or window (selected-window))))
+        (or (and (window-splittable-p window t)
+                 (with-selected-window window
+                     (split-window-right)))
+            (and (window-splittable-p window)
+                 (with-selected-window window
+                     (split-window-below))))))
+
+(setq split-window-preferred-function #'my-split-window-sensibly)
+
+(provide 'init-split-window)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-auto-highlight-symbol.el ends here
+;;; init-split-window.el ends here

@@ -60,8 +60,8 @@
 
 ;; Override M-right/left moves full word user M-f and M-b
 ;; Also use M-F and M-B to move harder
-(global-set-key [M-right]  'python-indent-shift-right)
-(global-set-key [M-left]   'python-indent-shift-left)
+(global-set-key (kbd "H-C-<right>") 'python-indent-shift-right)
+(global-set-key (kbd "H-C-<left>") 'python-indent-shift-left)
 
 (provide 'init-python)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

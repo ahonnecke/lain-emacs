@@ -263,6 +263,10 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-string-inflection)
 
+(require 'init-split-window)
+
+(require 'init-helm-projectile)
+
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
