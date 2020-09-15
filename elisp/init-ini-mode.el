@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 5
+;;     Update #: 6
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -49,6 +49,7 @@
 (autoload 'ini-mode "ini-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.ini\\'" . ini-mode))
 (add-to-list 'auto-mode-alist '("Pipfile" . ini-mode))
+(add-to-list 'auto-mode-alist '("\\.cfg\\'" . conf-mode))
 
 (provide 'init-ini-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -73,10 +73,10 @@
 (global-set-key (kbd "M-<return>") 'hippie-expand)
 
 ;; Go to line number
-;;(global-set-key (kbd "C-L") 'goto-line)
+(global-set-key (kbd "H-l") 'goto-line)
 
 ;; Go to visible line with home row keys
-(global-set-key (kbd "H-l") 'avy-goto-line)
+;;(global-set-key (kbd "H-l") 'avy-goto-line)
 
 ;;e
 (global-set-key (kbd "C-c r") 'replace-string)
@@ -153,8 +153,13 @@
 (global-set-key (kbd "C-;") 'er/expand-region)
 ;;(define-key flyspell-mode-map (kbd "C-;") 'er/expand-region)
 
-(global-set-key (kbd "C-<next>") 'windmove-right)
-(global-set-key (kbd "C-<prior>") 'windmove-left)
+(global-set-key (kbd "H-<right>") 'windmove-right)
+(global-set-key (kbd "H-<left>") 'windmove-left)
+(global-set-key (kbd "H-<up>") 'windmove-up)
+(global-set-key (kbd "H-<down>") 'windmove-down)
+
+;; C-c f is the prefix for all file related shortcuts, of which there is one so far
+(global-set-key (kbd "C-c f r") 'rename-file-and-buffer)
 
 (provide 'init-bindings)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

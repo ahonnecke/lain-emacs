@@ -255,6 +255,14 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-ini-mode)
 
+(require 'init-alias)
+
+(require 'init-move-line)
+
+(require 'init-py-isort)
+
+(require 'init-string-inflection)
+
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here

@@ -1,20 +1,31 @@
-;;; init-ace-window.el --- -*- lexical-binding: t -*-
+;;; init-move-line.el ---
 ;;
-;; Filename: init-ace-window.el
-;; Description: Initialize Ace-Window
+;; Filename: init-move-line.el
+;; Description:
 ;; Author: Mingde (Matthew) Zeng
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Tue Apr 23 10:00:42 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ace-window
-;; Compatibility: emacs-version >= 26.1
+;; Created: Tue Sep 15 13:23:08 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 7
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes ace-window
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,18 +46,24 @@
 ;;
 ;;; Code:
 
-;; AceWindowPac
-(use-package ace-window
-  :bind ("M-o" . ace-window)
-  )
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
 
-(use-package ace-jump-mode
-  ;; Quick way to jump to a given char.
-  :bind ("C-<tab>" . ace-jump-mode))
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
 
-;; -AceWindowPac
+(global-set-key (kbd "M-<down>") 'move-line-down)
+(global-set-key (kbd "M-<up>") 'move-line-up)
 
-(provide 'init-ace-window)
+(provide 'init-move-line)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ace-window.el ends here
+;;; init-move-line.el ends here
