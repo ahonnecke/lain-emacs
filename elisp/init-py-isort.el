@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 4
+;;     Update #: 8
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -49,6 +49,8 @@
   :ensure t
   :config
   (add-hook 'before-save-hook 'py-isort-before-save))
+
+(setq py-isort-options '("--settings-path=.isort.cfg"))
 
 (provide 'init-py-isort)
 
