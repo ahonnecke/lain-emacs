@@ -59,6 +59,15 @@
   (setq magit-refresh-status-buffer nil)
   )
 
+(defun spre-commit ()
+  "runs the git pre-commit hooks"
+  (interactive)
+  (start-process
+   "pre-commit"
+   "pre-commit-buffer"
+   "pre-commit run --all-files"
+   ))
+
 (global-set-key (kbd "H-h") 'browse-at-remote)
 
 ;; -MagitPac
