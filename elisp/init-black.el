@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 10
+;;     Update #: 14
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -61,15 +61,9 @@
     (("C-c l" . blacken-buffer))
     )
 
+(add-hook 'python-mode-hook 'blacken-mode)
 
 ;;@ TODO only apply to buffers in python mode
-
-;; (defvar python-mode-map)
-;; (setq python-mode-map
-;;       (let ((map (make-sparse-keymap)))
-;;         ;; electric keys
-;;         (define-key map (kbd "C-c l") 'blacken-buffer)
-;; ))
 
 (provide 'init-black)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
