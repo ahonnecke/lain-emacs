@@ -83,6 +83,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
             (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
 ;; -AutoGC
 
+(setq backup-directory-alist '(("." . "~/MyEmacsBackups")))
+
 ;; LoadPath
 (defun update-to-load-path (folder)
   "Update FOLDER and its subdirectories to `load-path'."
@@ -266,6 +268,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-split-window)
 
 (require 'init-helm-projectile)
+
+(require 'init-git-timemachine)
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -1,16 +1,16 @@
-;;; init-fzf.el ---
+;;; init-git-timemachine.el ---
 ;;
-;; Filename: init-fzf.el
+;; Filename: init-git-timemachine.el
 ;; Description:
-;; Author: Ashton Honnecke
+;; Author: Mingde (Matthew) Zeng
 ;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Sun Sep 13 11:27:12 2020 (-0600)
+;; Created: Wed Sep 23 14:39:05 2020 (-0600)
 ;; Version:
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 8
+;;     Update #: 2
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -45,12 +45,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-;; (setq-local projectile-project-root "/home/ahonnecke/src/")
+(use-package git-timemachine)
 
-(use-package "fzf"
-  :init (setenv "FZF_DEFAULT_COMMAND" "rg --files --no-ignore-vcs --hidden -g '!{.venv,.git,*cache*,node_modules}'")
-  )
+(provide 'init-git-timemachine)
 
-(provide 'init-fzf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-fzf.el ends here
+;;; init-git-timemachine.el ends here

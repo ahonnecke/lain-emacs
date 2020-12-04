@@ -52,6 +52,9 @@
 ;; get back
 (global-set-key (kbd "H-p p") 'projectile-switch-project)
 
+(global-set-key (kbd "<C-next>") 'windmove-right)
+(global-set-key (kbd "<C-prior>") 'windmove-left)
+
 ;;(define-key projectile-mode-map (kbd "C-x f") 'helm-find-files)
 ;;(define-key global-map (kbd "C-x C-f") 'contextual:find-file)
 ;; (define-key projectile-mode-map (kbd "M-r a") 'ag-regexp-project-at-point)
@@ -162,6 +165,8 @@
 
 ;; C-c f is the prefix for all file related shortcuts, of which there is one so far
 (global-set-key (kbd "C-c f r") 'rename-file-and-buffer)
+
+(setq bidi-inhibit-bpa t)
 
 (provide 'init-bindings)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

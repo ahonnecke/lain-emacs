@@ -216,6 +216,15 @@ If failed try to complete the common part with `company-complete-common'"
           company-box-icons-alist 'company-box-icons-all-the-icons)))
 ;; -CompanyBoxPac
 
+(defun lsp--sort-completions (completions)
+  (lsp-completion--sort-completions completions))
+
+(defun lsp--annotate (item)
+  (lsp-completion--annotate item))
+
+(defun lsp--resolve-completion (item)
+  (lsp-completion--resolve item))
+
 (provide 'init-company)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-company.el ends here
