@@ -16,3 +16,6 @@
 /transient/history.el
 /network-security.data
 /.lsp-session-v1
+/pyim/
+/.dap-breakpoints
+/eshell/
