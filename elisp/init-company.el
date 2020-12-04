@@ -92,8 +92,9 @@ If all failed, try to complete the common part with `company-complete-common'"
                       (add-to-list 'company-backends '(company-capf :with company-tabnine :separate))))
   (kill-emacs . company-tabnine-kill-process)
   :config
-  ;; Enable TabNine on default
-  (add-to-list 'company-backends #'company-tabnine)
+  
+  ;; DON'T Enable TabNine on default
+  ;; (add-to-list 'company-backends #'company-tabnine)
 
   ;; Integrate company-tabnine with lsp-mode
   (defun company//sort-by-tabnine (candidates)
