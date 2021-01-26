@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 7
+;;     Update #: 9
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -45,13 +45,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-;; (use-package ini-mode)
+(use-package ini-mode)
 (autoload 'ini-mode "ini-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.ini\\'" . ini-mode))
 (add-to-list 'auto-mode-alist '("Pipfile" . ini-mode))
 
 (add-to-list 'auto-mode-alist '("\\.cfg\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.pylintrc\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.*rc\\'" . conf-mode))
 
 (provide 'init-ini-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

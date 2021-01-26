@@ -1,16 +1,16 @@
-;;; init-terraform-mode.el ---
+;;; init-json.el ---
 ;;
-;; Filename: init-terraform-mode.el
+;; Filename: init-json.el
 ;; Description:
 ;; Author: Mingde (Matthew) Zeng
 ;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Mon Sep 14 15:08:15 2020 (-0600)
+;; Created: Fri Jan 15 14:16:31 2021 (-0700)
 ;; Version:
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 11
+;;     Update #: 1
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -45,10 +45,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(use-package terraform-mode)
-(autoload 'terraform-mode "terraform-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.tf\\'" . terraform-mode))
 
-(provide 'init-terraform-mode)
+(add-hook 'json-mode-hook
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq js-indent-level 2)))
+
+(provide 'init-json)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-terraform-mode.el ends here
+;;; init-json.el ends here
