@@ -19,3 +19,5 @@
 /pyim/
 /.dap-breakpoints
 /eshell/
+session*
+forge-database.sqlite

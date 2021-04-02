@@ -1,16 +1,16 @@
-;;; init-fzf.el ---
+;;; init-uniq.el ---
 ;;
-;; Filename: init-fzf.el
+;; Filename: init-uniq.el
 ;; Description:
 ;; Author: Ashton Honnecke
 ;; Maintainer:
-;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Sun Sep 13 11:27:12 2020 (-0600)
+;; Copyright (C) 2021 Ashton Honnecke
+;; Created: Wed Mar 10 14:15:07 2021 (-0700)
 ;; Version:
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 12
+;;     Update #: 2
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -45,12 +45,27 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-;; (setq-local projectile-project-root "/home/ahonnecke/src/")
 
-(use-package "fzf"
-  :init (setenv "FZF_DEFAULT_COMMAND" "rg --files --no-ignore-vcs --hidden -g '!{.venv,.git,*cache*,node_modules,.aws-sam}'")
-  )
+(defun uniq-lines (beg end)
+  "Unique lines in region.
+Called from a program, there are two arguments:
+BEG and END (region to sort)."
+  (interactive "r")
+  (save-excursion
+    (save-restriction
+      (narrow-to-region beg end)
+      (goto-char (point-min))
+      (while (not (eobp))
+        (kill-line 1)
+        (yank)
+        (let ((next-line (point)))
+          (while
+              (re-search-forward
+               (format "^%s" (regexp-quote (car kill-ring))) nil t)
+            (replace-match "" nil nil))
+          (goto-char next-line))))))
 
-(provide 'init-fzf)
+(provide 'init-uniq)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-fzf.el ends here
+;;; init-uniq.el ends here

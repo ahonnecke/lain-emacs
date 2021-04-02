@@ -98,6 +98,8 @@
          ("<f7>" . dap-breakpoint-toggle))))
 ;; -DAPPac
 
+(setq lsp-ui-sideline-enable t)
+
 (provide 'init-lsp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-lsp.el ends here
