@@ -127,9 +127,9 @@
 (global-set-key (kbd "C-c d") 'crux-duplicate-current-line-or-region)
 
 ;;(global-set-key (kbd "M-o") (quote ace-window))
-(define-key shell-mode-map (kbd "M-o") (quote ace-window))
+;;(define-key eshell-mode-map (kbd "M-o") (quote ace-window))
 
-(define-key shell-mode-map (kbd "C-x o") (quote ace-window))
+;;(define-key eshell-mode-map (kbd "C-x o") (quote ace-window))
 (global-set-key (kbd "C-x o") (quote ace-window))
 
 ;;(global-set-key (kbd "H-o") (quote ace-window))
