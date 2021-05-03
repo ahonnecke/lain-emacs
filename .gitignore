@@ -19,5 +19,16 @@
 /pyim/
 /.dap-breakpoints
 /eshell/
+<<<<<<< HEAD
 session*
 forge-database.sqlite
+=======
+/%backup%~
+/.emacs.desktop
+/.org-id-locations
+/eln-cache/
+/url/
+/request/
+/hackernews/
+/init-private.el
+>>>>>>> 9a0801d083a9cb48b4ac43207ec9caf674ba5b1d

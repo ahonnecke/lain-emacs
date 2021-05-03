@@ -218,9 +218,13 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-erc)
 
+<<<<<<< HEAD
 (require 'init-eww)
 
 ;;(require 'init-mu4e)
+=======
+(require 'init-mu4e)
+>>>>>>> 9a0801d083a9cb48b4ac43207ec9caf674ba5b1d
 
 (require 'init-tramp)
 
@@ -241,7 +245,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-zone)
 
-
+<<<<<<< HEAD
 ;; misc ashton stuff
 (require 'init-bindings)
 
@@ -276,12 +280,13 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-helm-projectile)
 
 (require 'init-git-timemachine)
-
+=======
 ;; InitPrivate
 ;; Load init-private.el if it exists
 (when (file-exists-p (expand-file-name "init-private.el" user-emacs-directory))
   (load-file (expand-file-name "init-private.el" user-emacs-directory)))
 ;; -InitPrivate
+>>>>>>> 9a0801d083a9cb48b4ac43207ec9caf674ba5b1d
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

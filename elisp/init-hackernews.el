@@ -1,20 +1,20 @@
-;;; init-input-method.el --- -*- lexical-binding: t -*-
+;;; init-hackernews.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-input-method.el
-;; Description: Initialize Pyim
+;; Filename: init-hackernews.el
+;; Description: Initialize Hackernews
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Thu Jun 20 00:36:05 2019 (-0400)
+;; Created: Thu Mar 14 17:32:54 2019 (-0400)
 ;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d init
+;; Keywords: M-EMACS .emacs.d fonts
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes pyim
+;; This initializes hackernews.el
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,33 +35,17 @@
 ;;
 ;;; Code:
 
-;; PyimPac
-(use-package pyim
-  :init
-  (use-package posframe :defer t)
-  :custom
-  (default-input-method "pyim")
-  (pyim-default-scheme 'quanpin)
-  (pyim-page-tooltip 'posframe)
-  (pyim-page-length 9)
-  :config
-  (pyim-isearch-mode 1)
-  (setq-default pyim-english-input-switch-functions
-                '(pyim-probe-isearch-mode
-                  pyim-probe-org-structure-template))
-  (setq-default pyim-punctuation-half-width-functions
-                '(pyim-probe-punctuation-line-beginning
-                  pyim-probe-punctuation-after-punctuation))
+(eval-when-compile
+  (require 'init-global-config))
+
+;; HackerNewsPac
+(use-package hackernews
+  :commands (hackernews)
   :bind
-  ("M-j" . pyim-convert-string-at-point)) ; M-j 强制将光标前的拼音字符串转换为中文。
-;; -PyimPac
+  (("M-z h" . hackernews)
+   ("M-m h" . hackernews)))
+;; -HackerNewsPac
 
-;; PyimBaseDictPac
-(use-package pyim-basedict
-  :after pyim
-  :config (pyim-basedict-enable))
-;; -PyimBaseDictPac
-
-(provide 'init-input-method)
+(provide 'init-hackernews)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-input-method.el ends here
+;;; init-hackernews.el ends here
