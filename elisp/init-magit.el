@@ -69,6 +69,7 @@
    ))
 
 (global-set-key (kbd "H-h") 'browse-at-remote)
+(setq ghub-use-workaround-for-emacs-bug 'force)
 
 ;; -MagitPac
 

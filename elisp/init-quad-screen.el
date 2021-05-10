@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 3
+;;     Update #: 6
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -55,14 +55,14 @@
 
 (fset 'quad-screen
       (lambda (&optional arg)
-        "Split the screen into four bufers"
+        "Split the screen into four buffers"
         (interactive "p")
         (kmacro-exec-ring-item
          (quote ([?\C-x ?1 ?\C-x ?3 ?\C-x ?3 ?\C-x ?3 ?\C-x ?+ ] 0 "%d")) arg)))
 
-(quad-screen)
+(triple-screen)
 
-(global-set-key (kbd "C-c +") 'quad-screen)
+(global-set-key (kbd "C-c +") 'triple-screen)
 
 (provide 'init-quad-screen)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
