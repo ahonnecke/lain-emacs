@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 12
+;;     Update #: 13
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -50,6 +50,8 @@
 (use-package "fzf"
   :init (setenv "FZF_DEFAULT_COMMAND" "rg --files --no-ignore-vcs --hidden -g '!{.venv,.git,*cache*,node_modules,.aws-sam}'")
   )
+
+(global-set-key (kbd "H-f") 'fzf-find-file)
 
 (provide 'init-fzf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
