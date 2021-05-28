@@ -1,20 +1,31 @@
-;;; init-ace-window.el --- -*- lexical-binding: t -*-
+;;; init-auto-highlight-symbol.el ---
 ;;
-;; Filename: init-ace-window.el
-;; Description: Initialize Ace-Window
+;; Filename: init-auto-highlight-symbol.el
+;; Description:
 ;; Author: Mingde (Matthew) Zeng
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Tue Apr 23 10:00:42 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ace-window
-;; Compatibility: emacs-version >= 26.1
+;; Created: Mon Sep 14 09:12:15 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 2
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes ace-window
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -34,17 +45,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-
-;; AceWindowPac
-(use-package ace-window
-  :bind ("M-o" . ace-window)
-  )
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-
-(use-package ace-jump-mode
-  ;; Quick way to jump to a given char.
-  :bind ("C-<tab>" . ace-jump-mode))
-
-(provide 'init-ace-window)
+(use-package auto-highlight-symbol)
+(global-auto-highlight-symbol-mode t)
+(provide 'init-auto-highlight-symbol)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ace-window.el ends here
+;;; init-auto-highlight-symbol.el ends here

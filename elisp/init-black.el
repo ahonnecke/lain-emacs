@@ -1,20 +1,31 @@
-;;; init-ace-window.el --- -*- lexical-binding: t -*-
+;;; init-black.el ---
 ;;
-;; Filename: init-ace-window.el
-;; Description: Initialize Ace-Window
+;; Filename: init-black.el
+;; Description:
 ;; Author: Mingde (Matthew) Zeng
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Tue Apr 23 10:00:42 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ace-window
-;; Compatibility: emacs-version >= 26.1
+;; Created: Mon Sep 14 13:12:57 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 14
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes ace-window
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,16 +46,25 @@
 ;;
 ;;; Code:
 
-;; AceWindowPac
-(use-package ace-window
-  :bind ("M-o" . ace-window)
-  )
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(use-package blacken
+    :after python
+    :config
+    (defun apply-black ()
+      "run black on the current file and revert the buffer"
+      (interactive)
+      (shell-command
+       (format "black %s"
+               (shell-quote-argument (buffer-file-name))))
+      (revert-buffer t t t))
 
-(use-package ace-jump-mode
-  ;; Quick way to jump to a given char.
-  :bind ("C-<tab>" . ace-jump-mode))
+    :bind
+    (("C-c l" . blacken-buffer))
+    )
 
-(provide 'init-ace-window)
+(add-hook 'python-mode-hook 'blacken-mode)
+
+;;@ TODO only apply to buffers in python mode
+
+(provide 'init-black)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ace-window.el ends here
+;;; init-black.el ends here

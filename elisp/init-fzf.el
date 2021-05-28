@@ -1,20 +1,31 @@
-;;; init-ace-window.el --- -*- lexical-binding: t -*-
+;;; init-fzf.el ---
 ;;
-;; Filename: init-ace-window.el
-;; Description: Initialize Ace-Window
-;; Author: Mingde (Matthew) Zeng
+;; Filename: init-fzf.el
+;; Description:
+;; Author: Ashton Honnecke
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Tue Apr 23 10:00:42 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ace-window
-;; Compatibility: emacs-version >= 26.1
+;; Created: Sun Sep 13 11:27:12 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 14
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes ace-window
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -34,17 +45,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+;; (setq-local projectile-project-root "/home/ahonnecke/src/")
 
-;; AceWindowPac
-(use-package ace-window
-  :bind ("M-o" . ace-window)
+(use-package "fzf"
+  :init (setenv "FZF_DEFAULT_COMMAND" "rg --files --no-ignore-vcs --hidden -g '!{.venv,.git,*cache*,node_modules,.aws-sam}'")
   )
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
-(use-package ace-jump-mode
-  ;; Quick way to jump to a given char.
-  :bind ("C-<tab>" . ace-jump-mode))
+(global-set-key (kbd "H-f") 'counsel-fzf)
 
-(provide 'init-ace-window)
+(provide 'init-fzf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ace-window.el ends here
+;;; init-fzf.el ends here

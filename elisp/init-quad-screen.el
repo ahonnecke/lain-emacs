@@ -1,20 +1,31 @@
-;;; init-ace-window.el --- -*- lexical-binding: t -*-
+;;; init-quad-screen.el ---
 ;;
-;; Filename: init-ace-window.el
-;; Description: Initialize Ace-Window
+;; Filename: init-quad-screen.el
+;; Description:
 ;; Author: Mingde (Matthew) Zeng
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Tue Apr 23 10:00:42 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ace-window
-;; Compatibility: emacs-version >= 26.1
+;; Created: Sun Sep 13 12:11:40 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 8
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes ace-window
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,16 +46,24 @@
 ;;
 ;;; Code:
 
-;; AceWindowPac
-(use-package ace-window
-  :bind ("M-o" . ace-window)
-  )
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(fset 'triple-screen
+      (lambda (&optional arg)
+        "Split the screen into three screens"
+        (interactive "p")
+        (kmacro-exec-ring-item
+         (quote ([?\C-x ?1 ?\C-x ?3 ?\C-x ?3 ?\C-x ?+ ] 0 "%d")) arg)))
 
-(use-package ace-jump-mode
-  ;; Quick way to jump to a given char.
-  :bind ("C-<tab>" . ace-jump-mode))
+(fset 'quad-screen
+      (lambda (&optional arg)
+        "Split the screen into four buffers"
+        (interactive "p")
+        (kmacro-exec-ring-item
+         (quote ([?\C-x ?1 ?\C-x ?3 ?\C-x ?3 ?\C-x ?3 ?\C-x ?+ ] 0 "%d")) arg)))
 
-(provide 'init-ace-window)
+(quad-screen)
+
+(global-set-key (kbd "C-c +") 'quad-screen)
+
+(provide 'init-quad-screen)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ace-window.el ends here
+;;; init-quad-screen.el ends here

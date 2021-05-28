@@ -152,6 +152,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 ;; General Programming
 (require 'init-magit)
 
+(require 'init-forge)
+
 (require 'init-projectile)
 
 (require 'init-treemacs)
@@ -230,6 +232,42 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-epaint)
 
 (require 'init-zone)
+
+;; misc ashton stuff
+(require 'init-bindings)
+
+(require 'init-fzf)
+
+(require 'init-quad-screen)
+
+(require 'init-google-this)
+
+(require 'init-browse-at-remote)
+
+(require 'init-auto-highlight-symbol)
+
+;(require 'init-rg)
+
+'(require 'init-deadgrep)
+
+(require 'init-expand-region)
+
+(require 'init-ini-mode)
+
+;(require 'init-alias)
+
+;(require 'init-move-line)
+
+(require 'init-py-isort)
+
+(require 'init-string-inflection)
+
+(require 'init-split-window)
+
+(require 'init-helm-projectile)
+
+(require 'init-git-timemachine)
+
 
 ;; InitPrivate
 ;; Load init-private.el if it exists

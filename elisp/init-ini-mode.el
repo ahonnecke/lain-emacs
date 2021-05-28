@@ -1,20 +1,31 @@
-;;; init-ace-window.el --- -*- lexical-binding: t -*-
+;;; init-ini-mode.el ---
 ;;
-;; Filename: init-ace-window.el
-;; Description: Initialize Ace-Window
+;; Filename: init-ini-mode.el
+;; Description:
 ;; Author: Mingde (Matthew) Zeng
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Tue Apr 23 10:00:42 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ace-window
-;; Compatibility: emacs-version >= 26.1
+;; Created: Mon Sep 14 15:08:15 2020 (-0600)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 9
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes ace-window
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -34,17 +45,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+(use-package ini-mode)
+(autoload 'ini-mode "ini-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.ini\\'" . ini-mode))
+(add-to-list 'auto-mode-alist '("Pipfile" . ini-mode))
 
-;; AceWindowPac
-(use-package ace-window
-  :bind ("M-o" . ace-window)
-  )
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(add-to-list 'auto-mode-alist '("\\.cfg\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.pylintrc\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.*rc\\'" . conf-mode))
 
-(use-package ace-jump-mode
-  ;; Quick way to jump to a given char.
-  :bind ("C-<tab>" . ace-jump-mode))
-
-(provide 'init-ace-window)
+(provide 'init-ini-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ace-window.el ends here
+;;; init-ini-mode.el ends here
